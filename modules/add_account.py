@@ -14,8 +14,8 @@ from .start import start
 
 
 def add_account(d: Union[Message, CallbackQuery]):
-    t = '<b>Add DO Account</b>\n\n' \
-        'Digital Ocean Token Input <a href="https://cloud.digitalocean.com/account/api/tokens">Get It Here</a> pay attention to copy paste\n\n' \
+    t = '<b>Add Digital Ocean Account</b>\n\n' \
+        'Digital Ocean Token Input <a href="https://cloud.digitalocean.com/account/api/tokens">Get It Here</a> \n\n' \
         'Example:\n' \
         '<code>token123:Commentxxx</code>\n' \
         '<code>token345</code>\n\n' \
