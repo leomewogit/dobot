@@ -65,7 +65,7 @@ def select_region(call: CallbackQuery, data: dict):
 
     bot.edit_message_text(
         text=f'{_t}'
-             f'Get in that country...',
+             f'VPS Location ရွေးပါ။...',
         chat_id=call.from_user.id,
         message_id=call.message.message_id,
         parse_mode='HTML'
@@ -87,7 +87,7 @@ def select_region(call: CallbackQuery, data: dict):
 
     bot.edit_message_text(
         text=f'{_t}'
-             f'Select the area',
+             f'Location Area ရွေးပါ။',
         chat_id=call.from_user.id,
         message_id=call.message.message_id,
         reply_markup=markup,
@@ -107,7 +107,7 @@ def select_size(call: CallbackQuery, data: dict):
 
     bot.edit_message_text(
         text=f'{_t}'
-             f'Get the model.....',
+             f'VPS SIZE ရွေးပါ။.....',
         chat_id=call.from_user.id,
         message_id=call.message.message_id,
         parse_mode='HTML'
@@ -135,7 +135,7 @@ def select_size(call: CallbackQuery, data: dict):
 
     bot.edit_message_text(
         text=f'{_t}'
-             f'Select the model',
+             f'VPS Size ရွေးပါ။',
         chat_id=call.from_user.id,
         message_id=call.message.message_id,
         reply_markup=markup,
@@ -183,13 +183,13 @@ def select_image(d: Union[Message, CallbackQuery], data: dict):
     if type(d) == Message:
         msg = bot.send_message(
             text=f'{_t}'
-                 f'Apply Sys OS...',
+                 f'Os အတည်ပြုနေပါသည်။...',
             chat_id=d.from_user.id,
             parse_mode='HTML'
         )
         bot.edit_message_text(
             text=f'{_t}'
-                 f'Select Sys OS',
+                 f'Select System OS',
             chat_id=d.from_user.id,
             message_id=msg.message_id,
             reply_markup=get_image_markup(),
@@ -199,14 +199,14 @@ def select_image(d: Union[Message, CallbackQuery], data: dict):
     elif type(d) == CallbackQuery:
         bot.edit_message_text(
             text=f'{_t}'
-                 f'Get Sys Os...',
+                 f'Get System Os...',
             chat_id=d.from_user.id,
             message_id=d.message.message_id,
             parse_mode='HTML'
         )
         bot.edit_message_text(
             text=f'{_t}'
-                 f'Select Sys Os',
+                 f'Select System Os',
             chat_id=d.from_user.id,
             message_id=d.message.message_id,
             reply_markup=get_image_markup(),
@@ -228,7 +228,7 @@ def get_name(call: CallbackQuery, data: dict):
 
     msg = bot.edit_message_text(
         text=f'{_t}'
-             'Please reply Example name: N4ND4\n\n'
+             'VPS Name တခုခုရေးပါ။ ဥပမာ: SG Server 1\n\n'
              '/back Previous',
         chat_id=call.from_user.id,
         message_id=call.message.message_id,
@@ -249,17 +249,17 @@ def ask_create(m: Message):
     markup = InlineKeyboardMarkup(row_width=2)
     markup.add(
         InlineKeyboardButton(
-            text='Previous',
+            text='နောက်သို့',
             callback_data=f'create_droplet?nf=get_name&image={user_dict[m.from_user.id]["image_slug"]}'
         ),
         InlineKeyboardButton(
-            text='Cancel',
+            text='မလုပ်တော့ပါ။',
             callback_data='create_droplet?nf=cancel_create'
         ),
     )
     markup.row(
         InlineKeyboardButton(
-            text='Make',
+            text='Server Create မည်။',
             callback_data=f'create_droplet?nf=confirm_create&name={m.text}'
         )
     )
@@ -275,7 +275,7 @@ def ask_create(m: Message):
 def cancel_create(call: CallbackQuery):
     bot.edit_message_text(
         text=f'{call.message.html_text}\n\n'
-             '<b>Cancel</b>',
+             '<b>မလုပ်တော့ပါ။</b>',
         chat_id=call.from_user.id,
         message_id=call.message.message_id,
         parse_mode='HTML'
@@ -306,7 +306,7 @@ def confirm_create(call: CallbackQuery, data: dict):
 
     droplet_actions = droplet.get_actions()
     for action in droplet_actions:
-        while action.status != 'completed':
+        while action.status != 'Completed':
             sleep(5)
             action.load()
     droplet.load()
@@ -325,8 +325,9 @@ def confirm_create(call: CallbackQuery, data: dict):
         text=f'{call.message.html_text}\n'
              f'Username  : <code>root</code>\n'   
              f'Password: <code>{password}</code>\n'
-             f'IP VPS    ：<code>{droplet.ip_address}</code>\n\n'
-             '<b>The server is finished.</b>',
+             f'IP VPS    ：<code>{droplet.ip_address}</code>\n
+             '<b>VPS Create ပြီးပါပြီ။</b>'
+             '<b>Bot Modify By @n4nd404</b>'\n,
         chat_id=call.from_user.id,
         message_id=call.message.message_id,
         parse_mode='HTML'
