@@ -35,4 +35,5 @@ systemctl start dobot
 
 cd
 rm install.sh
-echo -e "Successfully create the Digital Ocean/Start bot panel in the bot to start"
+echo -e "Successfully create the Digital Ocean Control Bot panel. Go Your telegram in the bot to /start"
+echo -e "Script Modify By N4ND404"
