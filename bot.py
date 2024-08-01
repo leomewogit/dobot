@@ -71,7 +71,7 @@ def callback_query_handler(call: CallbackQuery):
 
 def handle_exception(d: Union[Message, CallbackQuery], e):
     bot.send_message(
-        text=f'Make a mistake\n'
+        text=f'သင့်Botက တခုခုမှားနေတယ်။\n'
              f'<code>{e}</code>',
         chat_id=d.from_user.id,
         parse_mode='HTML'
