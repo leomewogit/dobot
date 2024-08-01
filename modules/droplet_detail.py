@@ -48,7 +48,7 @@ def droplet_detail(call: CallbackQuery, data: dict):
                 callback_data=f'droplet_actions?doc_id={doc_id}&droplet_id={droplet_id}&a=shutdown'
             ),
             InlineKeyboardButton(
-                text='Repeat return',
+                text='Reboot Vps',
                 callback_data=f'droplet_actions?doc_id={doc_id}&droplet_id={droplet_id}&a=reboot'
             )
         ])
@@ -82,7 +82,7 @@ def droplet_detail(call: CallbackQuery, data: dict):
              f'Server IP: <code>{droplet.ip_address}</code>\n'
              f'Private IP： <code>{droplet.private_ip_address}</code>\n'
              f'Status: <code>{droplet.status}</code>\n'
-             f'Manufacturing: <code>{droplet.created_at.split("T")[0]}</code>\n',
+             f'Server Start Date: <code>{droplet.created_at.split("T")[0]}</code>\n',
         chat_id=call.from_user.id,
         message_id=call.message.message_id,
         parse_mode='HTML',
