@@ -19,13 +19,13 @@ def account_detail(call: CallbackQuery, data: dict):
 
     msg = bot.send_message(
         text=f'{t}'
-             f'Surat: <code>{account["email"]}</code>\n\n'
+             f'Account Email: <code>{account["email"]}</code>\n\n'
              f'Get information...',
         chat_id=call.from_user.id,
         parse_mode='HTML'
     )
 
-    t += f'Surat: <code>{account["email"]}</code>\n' \
+    t += f'Account Email: <code>{account["email"]}</code>\n' \
          f'Comment: <code>{account["remarks"]}</code>\n' \
          f'Date Added: <code>{account["date"]}</code>\n' \
          f'Token： <code>{account["token"]}</code>\n\n'
