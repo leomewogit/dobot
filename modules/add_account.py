@@ -16,10 +16,10 @@ from .start import start
 def add_account(d: Union[Message, CallbackQuery]):
     t = '<b>Add DO Account</b>\n\n' \
         'Digital Ocean Token Input <a href="https://cloud.digitalocean.com/account/api/tokens">Get It Here</a> pay attention to copy paste\n\n' \
-        'Contoh:\n' \
-        '<code>token123:Komentarxxx</code>\n' \
+        'Example:\n' \
+        '<code>token123:Commentxxx</code>\n' \
         '<code>token345</code>\n\n' \
-        '/cancel Membatalkan'
+        '/cancel Cancel'
 
     msg = bot.send_message(
         text=t,
