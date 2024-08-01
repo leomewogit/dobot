@@ -48,7 +48,7 @@ def droplet_detail(call: CallbackQuery, data: dict):
                 callback_data=f'droplet_actions?doc_id={doc_id}&droplet_id={droplet_id}&a=shutdown'
             ),
             InlineKeyboardButton(
-                text='Repeat kembali',
+                text='Repeat return',
                 callback_data=f'droplet_actions?doc_id={doc_id}&droplet_id={droplet_id}&a=reboot'
             )
         ])
@@ -77,7 +77,7 @@ def droplet_detail(call: CallbackQuery, data: dict):
              f'Name: <code>{droplet.name}</code>\n'
              f'Model: <code>{droplet.size_slug}</code>\n'
              f'Country: <code>{localize_region(droplet.region["slug"])}</code>\n'
-             f'Os sys: <code>{droplet.image["distribution"]} {droplet.image["name"]}</code>\n'
+             f'Os system: <code>{droplet.image["distribution"]} {droplet.image["name"]}</code>\n'
              f'Hard disk: <code>{droplet.disk} GB</code>\n'
              f'Server IP: <code>{droplet.ip_address}</code>\n'
              f'Private IP： <code>{droplet.private_ip_address}</code>\n'
