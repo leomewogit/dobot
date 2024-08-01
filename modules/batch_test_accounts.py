@@ -16,7 +16,7 @@ from utils.db import AccountsDB
 
 
 def batch_test_accounts(d: Union[Message, CallbackQuery]):
-    t = '<b>Batch Test Account</b>\n\n'
+    t = '<b>Do Account စစ်ဆေးခြင်း</b>\n\n'
     markup = InlineKeyboardMarkup()
 
     msg = bot.send_message(
@@ -43,7 +43,7 @@ def batch_test_accounts(d: Union[Message, CallbackQuery]):
     t += f'<b>General {len(accounts)} Account Number</b>\n\n'
 
     if checked_accounts:
-        t += f'Test Success {len(checked_accounts)} 个：\n'
+        t += f'Checked Success {len(checked_accounts)} 个：\n'
         for account_balance in checked_accounts:
             t += f'<code>{account_balance.email}</code> | <code>{account_balance.account_balance}</code>\n'
         t += '\n'
@@ -54,7 +54,7 @@ def batch_test_accounts(d: Union[Message, CallbackQuery]):
             t += f'<code>{email}</code>\n'
         markup.add(
             InlineKeyboardButton(
-                text='Delete Account Kegagalan',
+                text='Delete Account Failure',
                 callback_data=json.dumps({
                     't': 'batch_test_delete_accounts'
                 })
